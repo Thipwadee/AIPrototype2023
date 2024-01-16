@@ -17,14 +17,14 @@ def hellonuey():
 
 @app.route("/home", methods=['POST','GET'])
 def homefn():
-    if request.methods == "GET":
+    if request.method == "GET":
        print('we aer in home(GET)', file=sys.stdout)
 
        namein = request.args.get('fname')
        print(namein, file=sys.stdout)
        return render_template("home.html", name=namein)
 
-    elif request.methods == "POST":
+    elif request.method == "POST":
        print('we aer in home(POST)', file=sys.stdout)
        namein = request.form.get('fname')
        lastnamein = request.form.get('lname')
