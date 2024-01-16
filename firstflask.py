@@ -1,3 +1,4 @@
+from crypt import methods
 from doctest import debug
 from flask import Flask, request, render_template, make_response
 
@@ -13,8 +14,13 @@ def helloworld():
 def hellonuey():
     return "Hello, Nuey!"
 
-@app.route("/home2")
-def home2():
+@app.route("/home", methods=['POST'])
+def homefn():
+    print('we aer in home')
+    namein = request.form.get('fname')
+    lastnamein = request.form.get('fname')
+    print(namein)
+    print(lastnamein)
     return render_template("home.html", name='nuey')
 
 if __name__ == "__main__":
