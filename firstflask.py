@@ -18,11 +18,11 @@ def hellonuey():
 @app.route("/home", methods=['POST','GET'])
 def homefn():
     print('we aer in home', file=sys.stdout)
-    
+
     namein = request.form.get('fname')
     lastnamein = request.form.get('lname')
-    print(namein)
-    print(lastnamein)
+    print(namein, file=sys.stdout)
+    print(lastnamein, file=sys.stdout)
     return render_template("home.html", name=namein)
 
 if __name__ == "__main__":
