@@ -3,6 +3,7 @@ from doctest import debug
 from flask import Flask, request, render_template, make_response
 
 import json
+import sys
 
 app = Flask(__name__)
 
@@ -16,7 +17,8 @@ def hellonuey():
 
 @app.route("/home", methods=['POST','GET'])
 def homefn():
-    print('we aer in home')
+    print('we aer in home', file=sys.stdout)
+    
     namein = request.form.get('fname')
     lastnamein = request.form.get('lname')
     print(namein)
