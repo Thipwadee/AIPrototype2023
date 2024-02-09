@@ -18,6 +18,9 @@ def web_service_API():
     json_data = json.dumps({'y':'received'})
     return json_data
 
-@app.route("/")
+@app.route("/2")
 def helloworld():
-    return "Hello World!"
+    return "Hello! This is my web app."
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=True,port=5001) #host='0.0.0.0'คือสามารถให้เครื่องอื่นเห็นได้
