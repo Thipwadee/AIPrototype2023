@@ -18,9 +18,9 @@ def web_service_API():
     json_data = json.dumps({'y':'received'})
     return json_data
 
-@app.route("/2")
+@app.route("/")
 def helloworld():
-    return "Hello! This is my web app."
+    return "<h1>Hello! Welcome to My Web Application.</h1>"
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
