@@ -53,7 +53,7 @@ def upload_file():
         #    flash('No selected file')
         #    return redirect(request.url)
         file.save('filename')
-        return render_template("home.html", name='upload completed')
+        return render_template("Webapp.html", name='upload completed')
 
     return '''
     <!doctype html>
