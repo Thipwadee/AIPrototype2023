@@ -7,6 +7,37 @@
 nav {
     display: flex;
     justify-content: space-between;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 10px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 20px;
+}
+.menu {
+    display: flex;
+    list-style: none;
+}
+.menu li a {
+    text-decoration: none;
+    color: #333;
+
+}
+header {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
+.header-info {
+    text-align: center;
+    height: 250px;
+    width: 650px;
+    color: #333;
+
+
 }
