@@ -1,13 +1,12 @@
-head {
-    height: 1000px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid red;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.head-info {
-    text-align: center;
-    width: 650px;
-    height: 250px;
+
+nav {
+    display: flex;
+    justify-content: space-between;
     border: 1px solid red;
+    padding: 10px;
 }
