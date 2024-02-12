@@ -62,7 +62,7 @@ header {
      grid-template-columns: repeat(2, 1fr)
 }
 .tech-item img {
-    width: 150px;
+    width: 250px;
     border-radius: 100%;
     box-shadow: 0 0 10px #333;
 }
