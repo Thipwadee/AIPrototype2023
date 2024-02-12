@@ -56,3 +56,20 @@ header {
     margin-top: 2rem;
 
 }
+
+.tech {
+     display: grid;
+     grid-template-columns: repeat(2, 1fr)
+}
+.tech.item {
+    padding: 2rem;
+    background-color: #E3B9B1;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
+    color: #fff;
+}
