@@ -35,7 +35,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #CCFFCC;
+    background-color: url("https://westbridgfordwire.com/wp-content/uploads/2023/07/IMG_0218-696x392.jpeg");
 }
 .header-info {
     text-align: center;
@@ -60,6 +60,11 @@ header {
 .tech {
      display: grid;
      grid-template-columns: repeat(2, 1fr)
+}
+.tech-item img {
+    width: 150px;
+    border-radius: 100%;
+    box-shadow: 0 0 10px #333;
 }
 .tech-item {
     padding: 2rem;
