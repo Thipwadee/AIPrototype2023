@@ -9,7 +9,7 @@ nav {
     justify-content: space-between;
     /* border: 1px solid red; */
     padding: 10px;
-    background-color: 9290C3 ;
+    background-color: #9290C3 ;
 }
 
 .logo a {
@@ -41,7 +41,7 @@ header {
     text-align: center;
     height: 250px;
     width: 650px;
-    color: #1B1A55;
+    color: #fff;
 
 }
 .header-info a {
@@ -68,7 +68,7 @@ header {
 }
 .tech-item {
     padding: 2rem;
-    background-color: #1B1A55;
+    background-color: ##9290C3;
     text-align: center;
 }
 
