@@ -29,7 +29,7 @@ def homefn():
 
        namein = request.args.get('fname')
        print(namein, file=sys.stdout)
-       return render_template("home.html", name=namein)
+       return render_template("Webapp.html", name=namein)
 
     elif request.method == "POST":
        print('we aer in home(POST)', file=sys.stdout)
@@ -37,7 +37,7 @@ def homefn():
        lastnamein = request.form.get('lname')
        print(namein, file=sys.stdout)
        print(lastnamein, file=sys.stdout)
-       return render_template("home.html", name=namein)
+       return render_template("Webapp.html", name=namein)
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
