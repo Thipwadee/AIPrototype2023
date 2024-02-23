@@ -20,7 +20,7 @@ def web_service_API():
 
 @app.route("/")
 def helloworld():
-    return render_template("Webapp.html", name=namein)
+    return "<h1> Welcome to My Web Application.</h1>"
 
 @app.route("/home", methods=['POST','GET'])
 def homefn():
