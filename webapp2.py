@@ -56,6 +56,23 @@ def predict():
        print(lastnamein, file=sys.stdout)
        return render_template("pred.html", name=namein)
 
+@app.route("/res", methods=['POST','GET'])
+def predict():
+    if request.method == "GET":
+       print('we aer in home(GET)', file=sys.stdout)
+
+       namein = request.args.get('fname')
+       print(namein, file=sys.stdout)
+       return render_template("result.html", name=namein)
+
+    elif request.method == "POST":
+       print('we aer in home(POST)', file=sys.stdout)
+       namein = request.form.get('fname')
+       lastnamein = request.form.get('lname')
+       print(namein, file=sys.stdout)
+       print(lastnamein, file=sys.stdout)
+       return render_template("result.html", name=namein)
+
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
