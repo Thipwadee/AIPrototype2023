@@ -28,7 +28,6 @@ def homefn():
 
 @app.route("/form", methods=['POST','GET'])
 def form_info():
-    if request.method == 'POST':
        return render_template("pred.html")
 
 
