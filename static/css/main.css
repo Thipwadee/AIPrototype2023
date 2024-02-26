@@ -83,7 +83,7 @@ banner {
     position: absolute;
     top: 50px; 
     right: 50px; 
-    left: 70px;   
+    left: 150px;   
     padding: 50px;
 
 }
@@ -105,7 +105,7 @@ banner {
     border-radius: 32px;
     background-color: #ffa037;
     padding: 15px 50px;
-    left: 20px; 
+  
 }
 
 footer {
