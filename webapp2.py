@@ -33,7 +33,6 @@ def form_info():
 
 @app.route("/res", methods=['POST','GET'])
 def res():
-    if request.method == "POST":
        return render_template("result.html")
 
 
