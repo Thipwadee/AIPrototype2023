@@ -80,7 +80,10 @@ banner {
 }
 .app-pic img{
     width: 500px; 
-    margin-left: 50px;
+    position: absolute;
+    right: 0px;
+    padding: 10px;
+
 }
 
 .btn-group {
