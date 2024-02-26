@@ -85,7 +85,7 @@ banner {
     position: relative;
 }
     
-.button {
+button {
     cursor: pointer;
     display: block;
     color: #000;
