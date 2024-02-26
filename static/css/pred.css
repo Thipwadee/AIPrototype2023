@@ -60,8 +60,28 @@ body{
 .container form .fields{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+}
+form .gender-field .category{
+    display: flex;
+    width: 80%;
+    margin: 14px 0;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+.gender-field .category label{
+    display: flex;
+    align-items: center;
+}
+.gender-field .category .dot{
+    height: 18px;
+    width: 18px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 10px solid transparent;
+    transition: all 0.3s ease;
 }
 form .fields .input-field{
     display: flex;
@@ -94,7 +114,21 @@ form .fields .input-field{
 .input-field input[type="data"]:valid{
     color: #333;
 }
+.container form button , nextBtn{
+    cursor: pointer;
+    display: block;
+    color: #000;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 32px;
+    background-color: #ffa037;
+    padding: 15px 50px;
+    float: left;
+    
+}
 .container form button , resetBtn{
+    margin-right: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
