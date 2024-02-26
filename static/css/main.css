@@ -85,7 +85,7 @@ banner {
     position: relative;
 }
     
-.btn-group .predict-btn {
+.button {
     cursor: pointer;
     display: block;
     color: #000;
