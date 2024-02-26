@@ -78,14 +78,6 @@ banner {
     padding-right: 250px;
     color: #000 ;
 }
-.app-pic img{
-    width: 700px; 
-    position: absolute;
-    top: 50px; 
-    right: 40px;    
-    padding: 50px;
-
-}
 
 .btn-group {
     display: flex;
@@ -107,9 +99,11 @@ banner {
   
 }
 
-footer {
-    background-color: #333;
-    padding: 1rem;
-    text-align: center;
-    color: #fff;
+.app-pic img{
+    width: 700px; 
+    position: absolute;
+    top: 50px; 
+    right: 40px;    
+    padding: 50px;
+
 }
