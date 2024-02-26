@@ -19,10 +19,7 @@ nav {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-    font-size: 40px;
- 
- 
-
+    font-size: 25px;
     
 }
 .menu {
@@ -38,7 +35,7 @@ nav {
     line-height: 80px;
     align-items: center;
     text-decoration: none;
-    color: #fff;
+    color: #333;
 
 }
 header {
