@@ -85,7 +85,7 @@ banner {
     position: relative;
 }
     
-button {
+.pred-btn {
     cursor: pointer;
     display: block;
     color: #000;
