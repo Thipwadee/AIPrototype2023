@@ -80,7 +80,9 @@ banner {
 }
 .app-pic img{
     margin-right: 100px;
-
+    width: 250px;
+    border-radius: 100%;
+    
 }
 .btn-group {
     display: flex;
