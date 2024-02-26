@@ -78,20 +78,22 @@ banner {
     padding-right: 250px;
     color: #000 ;
 }
-.app-text a {
-
-    background-color: #fff;
-    color: #000;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    
-    width: 80px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2rem;
-
+.btn-group {
+    display: flex;
+    width: 100%;
+    position: relative;
 }
-
+.btn-group .predict-btn {
+    cursor: pointer;
+    display: block;
+    color: #000;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 32px;
+    background-color: #ffa037;
+    padding: 15px 50px;
+}
 .tech {
      display: grid;
      grid-template-columns: repeat(2, 1fr)
