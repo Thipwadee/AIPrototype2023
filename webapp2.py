@@ -57,7 +57,7 @@ def predict():
        return render_template("pred.html", name=namein)
 
 @app.route("/res", methods=['POST','GET'])
-def predict():
+def res():
     if request.method == "GET":
        print('we aer in home(GET)', file=sys.stdout)
 
