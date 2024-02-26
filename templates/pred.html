@@ -5,7 +5,7 @@
   <meta http-equiv="x-ua-compatible" content="TE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/pred.css') }}">
+  <link rel="stylesheet" href="style.css">
 
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
@@ -13,92 +13,90 @@
 </head>
 <body>
   <div class="container">
-    <header>Information Form</header>
+    <header><h2>Information</h2></header>
 
     <form action="#">
       <div class="form first">
         <div class="details personal">
-          <span class="title">ปัจจัยส่วนบุคคล</span>
+          <span class="title"><font style="font-size: 20px;"><strong>Personal Factors</strong></font></span>
 
           <div class="fields">
-            <div class="input-field">
-              <label>เพศ</label>
-              <input type="text" placeholder="Enter your name" required>
+            <div class="gender-field">
+              <span class="gender-title"><font style="font-size: 16px;"><strong>Gender</strong></font></span>
+              <div class="category">
+                <input type="radio" name="gender" id="dot-1">
+                <label for="dot-1"> Male </label>
+                <input type="radio" name="gender" id="dot-2">
+                <label for="dot-2"> Female </label>
+              </div>
             </div>
 
             <div class="input-field">
-              <label>อายุ</label>
-              <input type="data" placeholder="Enter your age" required>
+              <label for="ticketNum"><font style="font-size: 16px;"><strong>Age</strong></font></label>
+              <input id="ticketNum" type="number" name="ticketNum" value="" placeholder="Enter your age" required>
             </div>
 
             <div class="input-field">
-              <label>น้ำหนัก</label>
-              <input type="data" placeholder="Enter your data" required>
+              <label for="ticketNum"><font style="font-size: 16px;"><strong>Weight</strong></font></label>
+              <input id="ticketNum" type="number" name="ticketNum" value="" placeholder="Enter your weight" required>
             </div>
 
             <div class="input-field">
-              <label>ส่วนสูง</label>
-              <input type="text" placeholder="Enter your name" required>
+              <label for="ticketNum"><font style="font-size: 16px;"><strong>Height</strong></font></label>
+              <input id="ticketNum" type="number" name="ticketNum" value="" placeholder="Enter your height" required>
             </div>
 
             <div class="input-field">
-              <label>BMI</label>
-              <input type="text" placeholder="Enter your name" required>
-            </div>
-
-            <div class="input-field">
-              <label>User Name</label>
-              <input type="text" placeholder="Enter your name" required>
+              <label for="ticketNum"><font style="font-size: 16px;"><strong>BMI</strong></font></label>
+              <input id="ticketNum" type="number" name="ticketNum" value="" placeholder="Enter your BMI" required>
             </div>
           </div>
         </div>
 
         <div class="details ID">
-          <span class="title">ปัจจัยด้านสภาพแวดล้อม</span>
+          <span class="title"><font style="font-size: 20px;"><strong>Environmental Factors</font></strong></span>
 
           <div class="fields">
             <div class="input-field">
-              <label>Temp</label>
-              <input type="text" placeholder="Enter your name" required>
+              <label for="ticketNum"><font style="font-size: 16px;"><strong>Temp</strong></font></label>
+              <input id="ticketNum" type="number" name="ticketNum" value="" placeholder="Enter your Temp" required>
             </div>
 
             <div class="input-field">
-              <label>RH</label>
-              <input type="data" placeholder="Enter your name" required>
+              <label for="ticketNum"><font style="font-size: 16px;"><strong>%RH</strong></font></label>
+              <input id="ticketNum" type="number" name="ticketNum" value="" placeholder="Enter your %RH" required>
             </div>
 
             <div class="input-field">
-              <label>V</label>
-              <input type="data" placeholder="Enter your data" required>
+              <label for="ticketNum"><font style="font-size: 16px;"><strong>V</strong></font></label>
+              <input id="ticketNum" type="number" name="ticketNum" value="" placeholder="Enter your V" required>
             </div>
 
             <div class="input-field">
-              <label>MRT</label>
-              <input type="text" placeholder="Enter your name" required>
+              <label for="ticketNum"><font style="font-size: 16px;"><strong>MRT</strong></font></label>
+              <input id="ticketNum" type="number" name="ticketNum" value="" placeholder="Enter your MRT" required>
             </div>
 
             <div class="input-field">
-              <label>พื้นที่ทำแบบสอบถาม</label>
-              <input type="text" placeholder="Enter your name" required>
-            </div>
-
-            <div class="input-field">
-              <label>User Name</label>
-              <input type="text" placeholder="Enter your name" required>
+              <label for="area"><font style="font-size: 16px;"><strong>Area<br></strong></font></label>
+              <select id="area" type="text" name="area" placeholder="Select your area" required>
+                <option value="area">Select your area</option>
+                <option value="ภายนอก/มีหลังคาคลุม"> ภายนอก/มีหลังคาคลุม</option>
+                <option value="ภายนอก/กลางแจ้ง"> ภายนอก/กลางแจ้ง</option>
+                <option value="ภายนอก/ใต้ร่มไม้"> ภายนอก/ใต้ร่มไม้</option>
+                <option value="ภายใต้อาคาร"> ภายใต้อาคาร</option>
+              </select>
             </div>
           </div>
 
           <div class="buttons">
-            <a href="result.html"class="btnText"> Submit</a>
-            <!-- <button class="nextBtn">
-              <span class="btnText">Submit</span>
-              <i class="uil uil-navigator"></i>
-            </button>
-          
+            <button type="reset" class="resetBtn" ng-click="reset()">Reset</button>
+
             <button class="nextBtn">
-              <span class="btnText">Submit</span>
+              
+              <span a href="{{ url_for('res') }}" class="btnText">Submit</span>
               <i class="uil uil-navigator"></i>
-          </button>-->
+          </button>
           </div>
 
         </div>
