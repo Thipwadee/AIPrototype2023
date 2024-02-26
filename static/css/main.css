@@ -81,7 +81,7 @@ banner {
 .app-pic img{
     width: 500px; 
     position: absolute;
-    right: 0px;
+    right: 50px;    
     padding: 10px;
 
 }
