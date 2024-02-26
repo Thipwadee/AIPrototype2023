@@ -79,10 +79,11 @@ banner {
     color: #000 ;
 }
 .app-pic img{
-    width: 500px; 
+    width: 700px; 
     position: absolute;
     top: 50px; 
-    right: 50px;    
+    right: 50px; 
+    left: 50px;   
     padding: 50px;
 
 }
