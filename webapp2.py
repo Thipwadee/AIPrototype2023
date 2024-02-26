@@ -39,7 +39,7 @@ def homefn():
        print(lastnamein, file=sys.stdout)
        return render_template("Webapp.html", name=namein)
 
-@app.route("/pred", methods=['POST','GET'])
+@app.route("/pred.html", methods=['POST','GET'])
 def predict():
     if request.method == "GET":
        print('we aer in home(GET)', file=sys.stdout)
