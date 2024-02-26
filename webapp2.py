@@ -28,12 +28,12 @@ def homefn():
 
 @app.route("/form", methods=['POST','GET'])
 def form_info():
-       return render_template("results.html")
+       return render_template("pred.html")
 
 
-#@app.route("/res", methods=['POST','GET'])
-#def res():
-#       return render_template("result.html")
+@app.route("/res", methods=['POST','GET'])
+def res():
+       return render_template("result.html")
 
 
 @app.route('/upload', methods=['GET', 'POST'])
