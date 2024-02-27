@@ -31,17 +31,17 @@ def form_info():
     if request.method == "GET":
        print('we aer in home(GET)', file=sys.stdout)
 
-       agein = request.args.get('fage')
-       print(agein, file=sys.stdout)
-       return render_template("pred.html", age=agein)
+       age = request.args.get('age')
+       print(age, file=sys.stdout)
+       return render_template("pred.html", age=age)
 
     elif request.method == "POST":
        print('we aer in home(POST)', file=sys.stdout)
-       agein = request.form.get('fage')
-       weightin = request.form.get('lweight')
-       print(agein, file=sys.stdout)
-       print(weightin, file=sys.stdout)
-       return render_template("Webapp.html", age=agein)
+       age = request.form.get('age')
+       weight = request.form.get('weight')
+       print(age, file=sys.stdout)
+       print(weight, file=sys.stdout)
+       return render_template("Webapp.html", age=age)
 
 
 @app.route("/res", methods=['POST','GET'])
