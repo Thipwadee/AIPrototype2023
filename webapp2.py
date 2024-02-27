@@ -1,6 +1,5 @@
 from crypt import methods
 from doctest import debug
-from app.forms import Input
 from flask import Flask, flash,request, redirect, render_template, make_response
 
 import json
