@@ -1,5 +1,6 @@
 from crypt import methods
 from doctest import debug
+from app.forms import Input
 from flask import Flask, flash,request, redirect, render_template, make_response
 
 import json
@@ -28,7 +29,20 @@ def homefn():
 
 @app.route("/form", methods=['POST','GET'])
 def form_info():
-       return render_template("pred.html")
+    if request.method == "GET":
+       print('we aer in home(GET)', file=sys.stdout)
+
+       agein = request.args.get('fage')
+       print(agein, file=sys.stdout)
+       return render_template("pred.html", age=agein)
+
+    elif request.method == "POST":
+       print('we aer in home(POST)', file=sys.stdout)
+       agein = request.form.get('fage')
+       weightin = request.form.get('lweight')
+       print(agein, file=sys.stdout)
+       print(weightin, file=sys.stdout)
+       return render_template("Webapp.html", age=agein)
 
 
 @app.route("/res", methods=['POST','GET'])
