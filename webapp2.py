@@ -33,7 +33,7 @@ def form_info():
 
        agein = request.args.get('fage')
        print(agein, file=sys.stdout)
-       return render_template("Webapp.html", age=agein)
+       return render_template("pred.html", age=agein)
 
     elif request.method == "POST":
        print('we aer in home(POST)', file=sys.stdout)
