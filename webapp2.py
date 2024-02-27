@@ -29,19 +29,19 @@ def homefn():
 @app.route("/form", methods=['POST','GET'])
 def form_info():
     if request.method == "GET":
-       print('we aer in home(GET)', file=sys.stdout)
+       print('เจอละ(GET)', file=sys.stdout)
 
-       age = request.args.get('age')
-       print(age, file=sys.stdout)
-       return render_template("pred.html", age=age)
+       Agein = request.args.get('ticketNum')
+       print(Agein, file=sys.stdout)
+       return render_template("Webapp.html", Age=Agein)
 
     elif request.method == "POST":
-       print('we aer in home(POST)', file=sys.stdout)
-       age = request.form.get('age')
-       weight = request.form.get('weight')
-       print(age, file=sys.stdout)
-       print(weight, file=sys.stdout)
-       return render_template("Webapp.html", age=age)
+       print('เจอละ(POST)', file=sys.stdout)
+       Agein = request.form.get('ticketNum')
+       weightin = request.form.get('ticketNum')
+       print(Agein, file=sys.stdout)
+       print(weightin, file=sys.stdout)
+       return render_template("Webapp.html", Age=Agein)
 
 
 @app.route("/res", methods=['POST','GET'])
