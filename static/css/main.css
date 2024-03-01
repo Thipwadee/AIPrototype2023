@@ -54,6 +54,7 @@ banner {
     width: 50%;
     float: left;
     padding-left: 50px;
+    
 }
 .app-text h3 {
     margin-top: 100px;
@@ -62,6 +63,7 @@ banner {
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
+    font-family: 'Prompt', sans-serif;
 }
 .app-text h1 {
     font-size: 51px;
@@ -77,6 +79,7 @@ banner {
     letter-spacing: 1px;
     padding-right: 250px;
     color: #000 ;
+    font-family: 'Prompt', sans-serif;
 }
 
 .btn-group {
