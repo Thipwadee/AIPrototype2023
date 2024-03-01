@@ -41,7 +41,7 @@ def form_info():
        weightin = request.form.get('ticketNum')
        print(Agein, file=sys.stdout)
        print(weightin, file=sys.stdout)
-       return render_template("result.html", Age=Agein)
+       return render_template("pred.html", Age=Agein)
 
 
 @app.route("/res", methods=['POST','GET'])
