@@ -29,14 +29,14 @@ def homefn():
 @app.route("/form", methods=['POST','GET'])
 def form_info():
     if request.method == "GET":
-       print('เจอละ(GET)', file=sys.stdout)
+       print('here(GET)', file=sys.stdout)
 
        Agein = request.args.get('ticketNum')
        print(Agein, file=sys.stdout)
        return render_template("pred.html", Age=Agein)
 
     elif request.method == "POST":
-       print('เจอละ (POST)', file=sys.stdout)
+       print('here (POST)', file=sys.stdout)
        Agein = request.form.get('ticketNum')
        weightin = request.form.get('ticketNum')
        print(Agein, file=sys.stdout)
@@ -61,7 +61,7 @@ def upload_file():
         # empty file without a filename.
         #if file.filename == '':
         #    flash('No selected file')
-        #    return redirect(request.url)
+        #    return redirect(request.url
         file.save('filename')
         return render_template("Webapp.html", name='upload completed')
 
