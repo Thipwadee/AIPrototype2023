@@ -28,14 +28,14 @@ def homefn():
 
 @app.route("/form", methods=['POST','GET'])
 def form_info():
-    if request.method == "GET":
-       print('เจอละ(GET)', file=sys.stdout)
+    #if request.method == "GET":
+    #   print('เจอละ(GET)', file=sys.stdout)
 
-       Agein = request.args.get('ticketNum')
-       print(Agein, file=sys.stdout)
-       return render_template("result.html", Age=Agein)
+    #   Agein = request.args.get('ticketNum')
+    #   print(Agein, file=sys.stdout)
+    #   return render_template("result.html", Age=Agein)
 
-    elif request.method == "POST":
+    if request.method == "POST":
        print('เจอละ (POST)', file=sys.stdout)
        Agein = request.form.get('ticketNum')
        weightin = request.form.get('ticketNum')
