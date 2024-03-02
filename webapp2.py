@@ -6,7 +6,7 @@ import json
 import sys
 
 app = Flask(__name__)
-model = pickle.load(open('model (1).pk','rb'))
+model = pickle.load(open('model.pk','rb'))
 
 ##api
 @app.route('/request',methods=['POST'])
