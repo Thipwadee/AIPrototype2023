@@ -15,7 +15,7 @@
   <div class="container">
     <header><h2><center>Questionnaire</center></h2></header>
 
-    <form action="/res" method="post">
+    <form action="/form" method="post">
       <div class="form first">
         <div class="details personal">
           <span class="title"><font style="font-size: 20px;"><strong>Personal Factors</strong></font></span>
@@ -76,7 +76,7 @@
               <label for="tmrt"><font style="font-size: 16px;"><strong>TMRT</strong></font></label>
               <input id="tmrt" type="text" name="tmrtin" value="" placeholder="Enter your MRT" required>
             </div>
-
+             
             <div class="input-field">
               <label for="area"><font style="font-size: 16px;"><strong>Area<br></strong></font></label>
               <select id="area" type="text" name="area" placeholder="Select your area" required>
@@ -89,7 +89,7 @@
             </div>
           </div>
 
-          
+             class : {{result}}<br>
             <!-- <button class="nextBtn">
               
                class="btnText">Submit</a>
