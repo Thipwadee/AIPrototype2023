@@ -79,7 +79,7 @@ def form_info():
 #    #predict
 #    prediction = trained_model.predict(test_data)
 #    return render_template("result.html")
-model = pickle.load(open('model.pk','rb'))
+model = pickle.load(open('model (1).pk','rb'))
 
 @app.route("/res", methods=['POST','GET'])
 def res():
