@@ -29,7 +29,7 @@ def homefn():
 @app.route("/form", methods=['POST','GET'])
 def form_info():
      if request.method == 'POST':
-      age = int(request.form['agein'])
+      age = int(request.form.get['agein'])
     #if request.method == "GET":
     #   print('here(GET)', file=sys.stdout)
      print("the summited age is", age)
