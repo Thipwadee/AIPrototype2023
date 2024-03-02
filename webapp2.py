@@ -28,15 +28,17 @@ def homefn():
 
 @app.route("/form", methods=['POST','GET'])
 def form_info():
-     if request.method == 'POST':
-      age = int(request.form.get['agein'])
+    age = request['agein']
+    weight = request['weightin']
+    height = request['heightin']
+    
     #if request.method == "GET":
     #   print('here(GET)', file=sys.stdout)
-     print("the summited age is", age)
+    
     #   Agein = request.args.get('ticketNum')
     #   print(Agein, file=sys.stdout)
     #   return render_template("pred.html", Age=Agein)
-     return "age submitted completed"
+      
     #elif request.method == "POST":
     #   print('here (POST)', file=sys.stdout)
     #   Agein = request.form.get('ticketNum')
