@@ -4,7 +4,7 @@ from flask import Flask, flash,request, redirect, render_template, make_response
 import pickle
 import json
 import sys
-import sklearn
+#import sklearn
 
 app = Flask(__name__)
 
@@ -42,15 +42,15 @@ def form_info():
         v = request.form.get('vin')
         tmrt = request.form.get('tmrtin')
         area= request.form.get('area')
-        result = model.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area]])[0]
-        return render_template('pred.html')
+     #   result = model.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area]])[0]
+        return render_template('result.html')
         
         #prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area)
             #pass prediction to template
         #return render_template('result.html', prediction = prediction)
     #if request.method == "GET":
     #   print('here(GET)', file=sys.stdout)
-    model = pickle.load(open('model (1).pk','rb'))
+ #   model = pickle.load(open('model (1).pk','rb'))
     #   Agein = request.args.get('ticketNum')
     #   print(Agein, file=sys.stdout)
     #   return render_template("pred.html")
