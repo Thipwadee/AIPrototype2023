@@ -50,7 +50,7 @@ def form_info():
         #return render_template('result.html', prediction = prediction)
     #if request.method == "GET":
     #   print('here(GET)', file=sys.stdout)
-    model = pickle.load(open('model\ (1).pk','rb'))
+    model = pickle.load(open('model (1).pk','rb'))
     #   Agein = request.args.get('ticketNum')
     #   print(Agein, file=sys.stdout)
     #   return render_template("pred.html")
