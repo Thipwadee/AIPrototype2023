@@ -6,7 +6,6 @@ import json
 import sys
 import sklearn
 
-
 app = Flask(__name__)
 
 
