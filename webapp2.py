@@ -8,7 +8,6 @@ import sys
 
 app = Flask(__name__)
 
-model = pickle.load(open('model.pk','rb'))
 
 ##api
 @app.route('/request',methods=['POST'])
@@ -80,7 +79,7 @@ def form_info():
 #    #predict
 #    prediction = trained_model.predict(test_data)
 #    return render_template("result.html")
-
+model = pickle.load(open('model.pk','rb'))
 
 @app.route("/res", methods=['POST','GET'])
 def res():
@@ -102,7 +101,7 @@ def upload_file():
         #    return redirect(request.url
         file.save('filename')
         return render_template("Webapp.html", name='upload completed')
-
+    
     return '''
     <!doctype html>
     <title>Upload new File</title>
