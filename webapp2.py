@@ -46,9 +46,9 @@ def form_info():
         #result = model.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area]])[0]
         return render_template('result.html' ,gender=gender, age=age, weight=weight, height=height, bmi=bmi, temp=temp,rh=rh,v=v,tmrt=tmrt,area=area)
         
-        #prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area)
-            #pass prediction to template
-        #return render_template('result.html', prediction = prediction)
+    prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area)
+
+    return render_template('result.html', prediction = prediction)
     #if request.method == "GET":
     #   print('here(GET)', file=sys.stdout)
  #   model = pickle.load(open('model (1).pk','rb'))
