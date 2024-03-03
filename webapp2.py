@@ -66,8 +66,7 @@ def form_info():
         try:
             prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
     #pass prediction to template
-            return render_template('result.html', prediction = prediction)
-        
+            return render_template('result.html', prediction = prediction, prediction2 = prediction2)
             prediction2 = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
     #pass prediction to template
             return render_template('result.html', prediction = prediction2)
