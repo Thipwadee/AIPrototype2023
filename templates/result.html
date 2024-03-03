@@ -19,14 +19,16 @@
     </div>
     
            
-      {% if prediction == 1 %}
-          <h4><center>UNACCEPTANCE</center></h4>
-          <div class="acc-pic">
-            <img src="./static/good-mood.png" alt="">    
-      {% elif prediction == 0 %}
+      {% if prediction == 0 %}
           <h4><center>ACCEPTANCE</center></h4>
+          <div class="acc-pic">
+            <img src="./static/good-mood.png" alt="">  
+          </div>  
+      {% elif prediction == 1 %}
+          <h4><center>UnACCEPTANCE</center></h4>
           <div class="unacc-pic">
-        <img src="./static/customer.png" alt="">  
+            <img src="./static/customer.png" alt="">  
+          </div>
       {% endif %}
 
         <div class="form first">
