@@ -4,10 +4,12 @@ from flask import Flask, flash,request, redirect, render_template, make_response
 import pickle
 import json
 import sys
+from joblib import dump, load
 #import sklearn
 
 app = Flask(__name__)
-model = pickle.load(open('AIPrototype2023/model (1).pk', 'rb') )
+with (open('AIPrototype2023/model (1).pk', 'rb') ) as f :
+     model = load(f)
 ##api
 @app.route('/request',methods=['POST'])
 def web_service_API():
