@@ -13,22 +13,14 @@
 </head>
 <body>
   <div class="container">
-    <header><h1><center>Result</center></h1></header>
+    <header><h3><center>Result</center></h3></header>
+         {{ prediction  }}
 
-    {% if prediction is defined and prediction is number %}
-        <p>Rounded Prediction: {{ prediction|round }}</p>
-    {% else %}
-        <p>Prediction is not available or not a number</p>
-    {% endif %}
-     <!-- <h1>TA Result : {{ prediction[0].round(3) }} </h1> -->
-     <!--  <h1>prediction : {{ prediction }}</h1>-->
-     <!--  <h1>prediction : {{ prediction }}</h1>
-    
-    <form action="#">
+    <form action="/form" method="post">
      <!-- Class : {{resul1}} <br>
       TSV : {{result2}} <br> -->
-     
-
+           
+      
         <div class="form first">
           <div class="details personal"></div>
         </div>
