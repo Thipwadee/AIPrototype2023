@@ -49,6 +49,13 @@ def form_info():
         area = request.form.get('area')
         print(gender,file=sys.stdout)
         print(age,file=sys.stdout)
+        print(weight,file=sys.stdout)
+        print(height,file=sys.stdout)
+        print(bmi,file=sys.stdout)
+        print(temp,file=sys.stdout)
+        print(rh,file=sys.stdout)
+        print(v,file=sys.stdout)
+        print(tmrt,file=sys.stdout)
         print(area,file=sys.stdout)
         result = model.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area]])[0]
         return render_template('result.html') #,gender=gender, age=age, weight=weight, height=height, bmi=bmi, temp=temp,rh=rh,v=v,tmrt=tmrt,area=area)
