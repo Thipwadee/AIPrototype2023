@@ -14,7 +14,8 @@
 <body>
   <div class="container">
     <header><h1><center>Result</center></h1></header>
-      <h1>TA Result : {{ prediction[0]..round(3) }} </h1>
+
+      <h1>TA Result : {{ prediction[0].round(3) }} </h1>
       <h1>TSV Result : {{ prediction2[0].round(3) }}</h1>
     
     <form action="#">
