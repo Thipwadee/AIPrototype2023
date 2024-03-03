@@ -14,22 +14,22 @@
 <body>
   <div class="container">
     <header><h3><center>Result</center></h3></header>
-       {{ prediction2}}
-  </div>
+       {{ prediction}}
+
     <form action="/form" method="post">
      <!-- Class : {{resul1}} <br>
       TSV : {{result2}} <br> -->
            
-      {% if prediction == 0 %}
-          <h4><center>ACCEPTANCE</center></h4>
-          
-            <img src="./static/good-mood.png" alt="">    
-      {% elif prediction == 1 %}
+      {% if prediction == 1 %}
           <h4><center>UNACCEPTANCE</center></h4>
-          
+          <div class="acc-pic">
+            <img src="./static/good-mood.png" alt="">    
+      {% elif prediction == 0 %}
+          <h4><center>ACCEPTANCE</center></h4>
+          <div class="unacc-pic">
         <img src="./static/customer.png" alt="">  
       {% endif %}
-          
+
         <div class="form first">
           <div class="details personal"></div>
         </div>
