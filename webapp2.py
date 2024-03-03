@@ -113,9 +113,9 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
    
     prediction = model_ta.predict(test_data)
     if all(value == 0 for value in prediction):
-            result_template = 'Webapp.html'
+             return render_template('Webapp.html')
     elif any(value == 1 for value in prediction ):
-            result_template = 'result.html'
+             return render_template('result.html')
     
     return prediction 
 
