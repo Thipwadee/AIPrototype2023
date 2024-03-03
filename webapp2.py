@@ -64,10 +64,9 @@ def form_info():
         print(area,file=sys.stdout)
         print(area,file=sys.stdout)
         try:
-           # prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
             prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
     #pass prediction to template
-            return render_template('result.html', prediction = prediction) # prediction = prediction,
+            return render_template('result.html', prediction = prediction)
             
     #pass prediction to template
             
@@ -111,9 +110,9 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
     #load trained model
     #trained_model = joblib.load(file)
     #predict
-    #prediction = model_ta.predict(test_data)
+   
     prediction = model_tsv.predict(test_data)
-    return prediction #, prediction2
+    return prediction 
     
 #    return render_template("result.html")
 
