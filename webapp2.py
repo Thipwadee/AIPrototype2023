@@ -4,7 +4,7 @@ from flask import Flask, flash,request, redirect, render_template, make_response
 import pickle
 import json
 import sys
-from joblib import dump, load
+#from joblib import dump, load
 #import sklearn
 
 app = Flask(__name__)
