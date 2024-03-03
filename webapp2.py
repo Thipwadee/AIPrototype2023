@@ -114,7 +114,7 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
     #predict
     prediction2 = model_tsv.predict(test_data)
     prediction = model_ta.predict(test_data)
-    prediction = 1 if prediction ==  else 0
+    prediction = 1 if prediction == 1 else 0
     return render_template('result.html', prediction = prediction,prediction2=prediction2)
 
     
