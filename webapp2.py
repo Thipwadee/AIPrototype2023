@@ -4,8 +4,8 @@ from flask import Flask, flash,request, redirect, render_template, make_response
 import pickle
 import json
 import sys
-#from joblib import dump, load
-#import sklearn
+from joblib import dump, load
+import sklearn
 
 app = Flask(__name__)
 #with (open('AIPrototype2023/model (1).pk', 'rb') ) as f :
