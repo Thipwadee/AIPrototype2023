@@ -61,7 +61,9 @@ def form_info():
         print(tmrt,file=sys.stdout)
         print(area,file=sys.stdout)
         print(area,file=sys.stdout)
-        result = model_ta.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])[0]
+        result1 = model_ta.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])
+        for result in result1:
+           print(result)
         result2 = model_tsv.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])[0]
         
         return render_template('result.html') #,gender=gender, age=age, weight=weight, height=height, bmi=bmi, temp=temp,rh=rh,v=v,tmrt=tmrt,area=area)
