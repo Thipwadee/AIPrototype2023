@@ -14,7 +14,7 @@
 <body>
   <div class="container">
     <header><h3><center>Result</center></h3></header>
-         {{ prediction  }}
+       
 
     <form action="/form" method="post">
      <!-- Class : {{resul1}} <br>
@@ -22,6 +22,8 @@
            
       {% if prediction ==0 %}
           <p>ACCEPTANCE</p>
+          <div class="acc-pic">
+            <img src="./static/good-mood.png" alt="">    
       {% elif prediction ==1 %}
           <p>UNACCEPTANCE</p>
       {% endif %}
