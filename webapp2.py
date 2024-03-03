@@ -31,7 +31,11 @@ def homefn():
 
 @app.route("/form", methods=['POST','GET'])
 def form_info():
-    if request.method == "POST":
+    if request.method == "GET":
+    #   print('here(GET)', file=sys.stdout)
+        return render_template("pred.html")
+    
+    elif request.method == "POST":
         #get form data
         gender = request.form.get('gender')
         age = request.form.get('agein')
@@ -42,13 +46,13 @@ def form_info():
         rh = request.form.get('rhin')
         v = request.form.get('vin')
         tmrt = request.form.get('tmrtin')
-        area= request.form.get('area')
+        area = request.form.get('area')
         #result = model.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area]])[0]
-        return render_template('result.html' ,gender=gender, age=age, weight=weight, height=height, bmi=bmi, temp=temp,rh=rh,v=v,tmrt=tmrt,area=area)
+        return render_template('result.html') #,gender=gender, age=age, weight=weight, height=height, bmi=bmi, temp=temp,rh=rh,v=v,tmrt=tmrt,area=area)
         
-    prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area)
+    #prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area)
 
-    return render_template('result.html', prediction = prediction)
+    #return render_template('result.html', prediction = prediction)
     #if request.method == "GET":
     #   print('here(GET)', file=sys.stdout)
  #   model = pickle.load(open('model (1).pk','rb'))
