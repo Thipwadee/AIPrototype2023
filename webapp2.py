@@ -37,7 +37,7 @@ def form_info():
     
     elif request.method == "POST":
         #get form data
-        gender = request.form.get('gender')
+        gender = request.form.get('genderin')
         age = request.form.get('agein')
         weight = request.form.get('weightin')
         height = request.form.get('heightin')
