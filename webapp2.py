@@ -65,12 +65,12 @@ def form_info():
         print(seasons,file=sys.stdout)
         try:
             prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
-            prediction = 0 if prediction == 0 else 1
-            return render_template('result.html', prediction = prediction)
+            prediction2 = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
+
+            
+            return render_template('result.html', prediction = prediction,prediction2=prediction2)
             
     #pass prediction to template
-            
-        
         except ValueError:
             return "Please Enter valid values"
  #เก็บไว้ก่อน iris data       result1 = model_ta.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])
@@ -110,10 +110,12 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
     #load trained model
     #trained_model = joblib.load(file)
     #predict
-   
+    prediction2 = model_tsv.predict(test_data)
     prediction = model_ta.predict(test_data)
+    prediction = 0 if prediction == 0 else 1
+    return render_template('result.html', prediction = prediction,prediction2=prediction2)
 
-    return prediction 
+    
 
      # Determine the template to render based on the prediction
 
