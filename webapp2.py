@@ -111,9 +111,16 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
     #trained_model = joblib.load(file)
     #predict
    
-    prediction = model_tsv.predict(test_data)
-    return prediction 
+    prediction = model_ta.predict(test_data)
+    if all(value == 0 for value in prediction):
+            result_template = 'Webapp.html'
+    elif any(value == 1 for value in prediction ):
+            result_template = 'resulr.html'
     
+    return prediction 
+
+     # Determine the template to render based on the prediction
+
 #    return render_template("result.html")
 
 
