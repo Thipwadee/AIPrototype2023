@@ -115,7 +115,7 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
     if all(value == 0 for value in prediction):
             result_template = 'Webapp.html'
     elif any(value == 1 for value in prediction ):
-            result_template = 'resulr.html'
+            result_template = 'result.html'
     
     return prediction 
 
