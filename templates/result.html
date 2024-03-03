@@ -12,13 +12,12 @@
   <title>Thermal Comfort</title>
 </head>
 <body>
-  <div class="container">
+  <form action="/form" method="post">
+   <div class="container">
     <header><h3><center>Result</center></h3></header>
        {{ prediction}}
-
-    <form action="/form" method="post">
-     <!-- Class : {{resul1}} <br>
-      TSV : {{result2}} <br> -->
+    </div>
+    
            
       {% if prediction == 1 %}
           <h4><center>UNACCEPTANCE</center></h4>
