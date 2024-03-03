@@ -8,8 +8,8 @@ import sys
 #import sklearn
 
 app = Flask(__name__)
-with (open('AIPrototype2023/model (1).pk', 'rb') ) as f :
-     model = load(f)
+#with (open('AIPrototype2023/model (1).pk', 'rb') ) as f :
+#      model = load(f)
 ##api
 @app.route('/request',methods=['POST'])
 def web_service_API():
@@ -43,7 +43,7 @@ def form_info():
         v = request.form.get('vin')
         tmrt = request.form.get('tmrtin')
         area= request.form.get('area')
-        result = model.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area]])[0]
+        #result = model.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area]])[0]
         return render_template('result.html' ,gender=gender, age=age, weight=weight, height=height, bmi=bmi, temp=temp,rh=rh,v=v,tmrt=tmrt,area=area)
         
         #prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area)
