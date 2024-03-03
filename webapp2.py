@@ -4,6 +4,8 @@ from flask import Flask, flash,request, redirect, render_template, make_response
 import pickle
 import json
 import sys
+import numpy as np
+import pandas as pd
 from joblib import dump, load
 import sklearn
 
@@ -61,10 +63,16 @@ def form_info():
         print(tmrt,file=sys.stdout)
         print(area,file=sys.stdout)
         print(area,file=sys.stdout)
-        result1 = model_ta.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])
-        #result2 = model_tsv.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])[0]
+        try:
+            prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
+    #pass prediction to template
+            return render_template('result.html', prediction = prediction)
+        except ValueError:
+            return "Please Enter valid values"
+ #เก็บไว้ก่อน iris data       result1 = model_ta.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])
+ #เก็บไว้ก่อน iris data          result2 = model_tsv.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])[0]
         
-        return render_template('result.html') 
+        #return render_template('result.html') 
         
     #prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area)
 
@@ -84,21 +92,22 @@ def form_info():
     #   print(weight)
     #   return render_template("result.html")
 
-#def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area):
-#    #put all inputs in array
-#    test_data = [[gender, age, weight, height, bmi, temp,rh,v,tmrt,area]]
-#    print(test_data)
-#    #convert value data into numpy array
-#    test_data = np.array(test_data)
-#    #creating a dataframe
-#    test_data = pd.DataFrame(test_data)
-#    print(test_data)
-#    #open file
-#    file = open("model.pk","rb")
-#    #load trained model
-#    trained_model = joblib.load(file)
-#    #predict
-#    prediction = trained_model.predict(test_data)
+def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons):
+    #put all inputs in array
+    test_data = [[gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons]]
+    print(test_data)
+    #convert value data into numpy array
+    test_data = np.array(test_data)
+    #creating a dataframe
+    test_data = pd.DataFrame(test_data)
+    print(test_data)
+    #open file
+    #file = open("model.pkl","rb")
+    #load trained model
+    #trained_model = joblib.load(file)
+    #predict
+    prediction = model_ta.predict(test_data)
+    return prediction
 #    return render_template("result.html")
 
 
@@ -107,32 +116,30 @@ def res():
        return render_template("result.html")
 
 
-@app.route('/upload', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
+#@app.route('/upload', methods=['GET', 'POST'])
+#def upload_file():
+#    if request.method == 'POST':
         # check if the post request has the file part
         #if 'file' not in request.files:
         #    flash('No file part')
         #    return redirect(request.url)
-        file = request.files['file']
+#        file = request.files['file']
         # If the user does not select a file, the browser submits an
         # empty file without a filename.
         #if file.filename == '':
         #    flash('No selected file')
         #    return redirect(request.url
-        file.save('filename')
-        return render_template("Webapp.html", name='upload completed')
+#        file.save('filename')
+#        return render_template("Webapp.html", name='upload completed')
     
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <input type=file name=file>
-      <input type=submit value=Upload>
-    </form>
-    '''   
-
-
+#    return '''
+#    <!doctype html>
+#    <title>Upload new File</title>
+#    <h1>Upload new File</h1>
+#    <form method=post enctype=multipart/form-data>
+#      <input type=file name=file>
+#      <input type=submit value=Upload>
+#    </form>
+#    '''   
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True,port=5001) #host='0.0.0.0'คือสามารถให้เครื่องอื่นเห็นได้
