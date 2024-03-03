@@ -43,7 +43,7 @@ def form_info():
         tmrt = request.form.get('tmrtin')
         area= request.form.get('area')
      #   result = model.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area]])[0]
-        return render_template('result.html')
+        return render_template('result.html' ,gender=gender, age=age, weight=weight, height=height, bmi=bmi, temp=temp,rh=rh,v=v,tmrt=tmrt,area=area)
         
         #prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area)
             #pass prediction to template
