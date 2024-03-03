@@ -7,7 +7,7 @@ import sys
 #import sklearn
 
 app = Flask(__name__)
-model = pickle.load(open('../model (1).pk', 'rb') )
+model = pickle.load(open('AIPrototype2023/model (1).pk', 'rb') )
 ##api
 @app.route('/request',methods=['POST'])
 def web_service_API():
