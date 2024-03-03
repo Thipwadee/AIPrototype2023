@@ -62,10 +62,10 @@ def form_info():
         print(v,file=sys.stdout)
         print(tmrt,file=sys.stdout)
         print(area,file=sys.stdout)
-        print(area,file=sys.stdout)
+        print(seasons,file=sys.stdout)
         try:
             prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
-    #pass prediction to template
+            prediction = 0 if prediction == 0 else 1
             return render_template('result.html', prediction = prediction)
             
     #pass prediction to template
@@ -112,11 +112,7 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
     #predict
    
     prediction = model_ta.predict(test_data)
-    if all(value == 0 for value in prediction):
-             return render_template('Webapp.html')
-    elif any(value == 1 for value in prediction ):
-             return render_template('result.html')
-    
+
     return prediction 
 
      # Determine the template to render based on the prediction
