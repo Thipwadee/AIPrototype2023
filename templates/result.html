@@ -20,7 +20,14 @@
      <!-- Class : {{resul1}} <br>
       TSV : {{result2}} <br> -->
            
-      
+      {% if prediction ==0 %}
+          <p>ACCEPTANCE</p>
+      {% elif prediction ==1 %}
+          <p>UNACCEPTANCE</p>
+      {% end if%}
+
         <div class="form first">
           <div class="details personal"></div>
         </div>
+</body>
+</html>
