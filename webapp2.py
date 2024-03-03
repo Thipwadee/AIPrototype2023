@@ -14,6 +14,8 @@ with (open('../AIPrototype2023/model_ta.pk', 'rb') ) as f :
       model_ta = load(f)
 with (open('../AIPrototype2023/model_tsv.pk', 'rb') ) as f :
       model_tsv = load(f)
+with (open('../AIPrototype2023/shap.pk', 'rb') ) as f :
+      shapta = load(f)      
 ##api
 @app.route('/request',methods=['POST'])
 def web_service_API():
@@ -112,7 +114,7 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
     #predict
     prediction2 = model_tsv.predict(test_data)
     prediction = model_ta.predict(test_data)
-    prediction = 0 if prediction == 0 else 1
+    prediction = 1 if prediction ==  else 0
     return render_template('result.html', prediction = prediction,prediction2=prediction2)
 
     
