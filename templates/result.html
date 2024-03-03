@@ -13,13 +13,13 @@
 </head>
 <body>
   <div class="container">
-    <header><h2><center>Result</center></h2></header>
+    <header><h2><center>Result</center>{{ prediction[0].round(3) }}</h2></header>
     
-    <form action="/form" method="post">
-      Class : {{resul1}} <br>
-      TSV : {{result2}} <br>
-      <input type=submit value=Predict>
-      
+    <form action="#">
+     <!-- Class : {{resul1}} <br>
+      TSV : {{result2}} <br> -->
+     
+
         <div class="form first">
           <div class="details personal"></div>
         </div>
