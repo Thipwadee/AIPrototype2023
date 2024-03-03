@@ -65,11 +65,12 @@ def form_info():
         print(area,file=sys.stdout)
         try:
             prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
-    #pass prediction to template
-            return render_template('result.html', prediction = prediction, prediction2 = prediction2)
             prediction2 = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
     #pass prediction to template
-            return render_template('result.html', prediction = prediction2)
+            return render_template('result.html', prediction = prediction, prediction2 = prediction2)
+            
+    #pass prediction to template
+            
         
         except ValueError:
             return "Please Enter valid values"
@@ -112,8 +113,8 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
     #predict
     prediction = model_ta.predict(test_data)
     prediction2 = model_tsv.predict(test_data)
-    return prediction
-    return prediction2
+    return prediction, prediction2
+    
 #    return render_template("result.html")
 
 
