@@ -46,7 +46,8 @@ def form_info():
         rh = request.form.get('rhin')
         v = request.form.get('vin')
         tmrt = request.form.get('tmrtin')
-        area = request.form.get('area')
+        area = request.form.get('areain')
+        seasons = request.form.get('seasonsin')
         print(gender,file=sys.stdout)
         print(age,file=sys.stdout)
         print(weight,file=sys.stdout)
@@ -57,7 +58,8 @@ def form_info():
         print(v,file=sys.stdout)
         print(tmrt,file=sys.stdout)
         print(area,file=sys.stdout)
-        result = model.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area]])[0]
+        print(area,file=sys.stdout)
+        result = model.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])[0]
         return render_template('result.html') #,gender=gender, age=age, weight=weight, height=height, bmi=bmi, temp=temp,rh=rh,v=v,tmrt=tmrt,area=area)
         
     #prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area)
