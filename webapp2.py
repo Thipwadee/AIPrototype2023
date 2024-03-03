@@ -10,6 +10,8 @@ import sklearn
 app = Flask(__name__)
 with (open('../AIPrototype2023/model_ta.pk', 'rb') ) as f :
       model_ta = load(f)
+with (open('../AIPrototype2023/model_tsv.pk', 'rb') ) as f :
+      model_tsv = load(f)
 ##api
 @app.route('/request',methods=['POST'])
 def web_service_API():
@@ -60,6 +62,8 @@ def form_info():
         print(area,file=sys.stdout)
         print(area,file=sys.stdout)
         result = model_ta.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])[0]
+        result2 = model_tsv.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])[0]
+        
         return render_template('result.html') #,gender=gender, age=age, weight=weight, height=height, bmi=bmi, temp=temp,rh=rh,v=v,tmrt=tmrt,area=area)
         
     #prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area)
