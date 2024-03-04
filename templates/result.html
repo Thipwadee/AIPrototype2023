@@ -17,7 +17,7 @@
     <header><h3><center>Result</center></h3></header>
         
       
-          <h4 style="color: green;"><center>your TSV are: {{ predictions }} and you ACCEPTANCE</center> </h4>  
+          <h4 style="color: green;"><center>your TSV are: {{ predictions[0].round(2) }} and you ACCEPTANCE</center> </h4>  
           <img src="./static/good-mood.png" alt="">
            <!-- {% if prediction==0 %}   
       {% elif prediction==1 %}
