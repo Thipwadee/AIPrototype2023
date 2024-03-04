@@ -12,7 +12,7 @@ import sklearn
 app = Flask(__name__)
 with (open('../AIPrototype2023/tamodel.pk', 'rb') ) as f :
       tamodel = load(f)
-with (open('../AIPrototype2023/tsvmodel.pk', 'rb') ) as f :
+with (open('../AIPrototype2023/tsvmodel.pkl', 'rb') ) as f :
       tsvmodel = load(f)
   
 ##api
@@ -41,7 +41,6 @@ def form_info():
         return render_template("pred.html")
     
     elif request.method == "POST":
-        #get form data
         gender = request.form.get('genderin')
         age = request.form.get('agein')
         weight = request.form.get('weightin')
@@ -94,6 +93,7 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
     #creating a dataframe
     test_data = pd.DataFrame(test_data)
     print(test_data)
+
     #open file
     #file = open("model.pkl","rb")
     #load trained model
@@ -106,12 +106,6 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
     predictions = tsvmodel.predict(test_data)
    
     return prediction, predictions
-
-    
-
-     # Determine the template to render based on the prediction
-
-#    return render_template("result.html")
 
 
 @app.route("/res", methods=['POST','GET'])
