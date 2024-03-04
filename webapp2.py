@@ -65,12 +65,11 @@ def form_info():
         print(area,file=sys.stdout)
         print(seasons,file=sys.stdout)
         try:
-            prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
-            
+            prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)    
             if prediction==0  :
-              result_template = 'result.html'
+               result_template = 'unaccept.html'
             elif prediction==1 :
-              result_template = 'unaccept.html'
+               result_template = 'result.html'
 
             return render_template(result_template, prediction=prediction)
             
