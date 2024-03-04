@@ -10,10 +10,10 @@ from joblib import dump, load
 import sklearn
 
 app = Flask(__name__)
-with (open('../AIPrototype2023/tamodel.pk', 'rb') ) as f :
-      tamodel = load(f)
-with (open('../AIPrototype2023/tsvmodel.pkl', 'rb') ) as f :
-      tsvmodel = load(f)
+with (open('../AIPrototype2023/model1.pkl', 'rb') ) as f :
+      model1= load(f)
+with (open('../AIPrototype2023/model2.pkl', 'rb') ) as f :
+      model2= load(f)
   
 ##api
 @app.route('/request',methods=['POST'])
@@ -64,8 +64,8 @@ def form_info():
         print(area,file=sys.stdout)
         print(seasons,file=sys.stdout)
         try:
-            predictions = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons) 
-            prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)    
+            predictions = preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, seasons) 
+            prediction = preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, seasons)    
             if (prediction[0]==0)  :
                result_template = 'result.html'
             elif (prediction[0]==1) :
@@ -84,9 +84,9 @@ def form_info():
         #return render_template('result.html') 
 
         
-def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons):
+def preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, seasons):
     #put all inputs in array
-    test_data = [[gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons]]
+    test_data = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
     print(test_data)
     #convert value data into numpy array
     test_data = np.array(test_data)
@@ -102,8 +102,8 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
 
     #prediction2 = model_tsv.predict(test_data)
     
-    prediction = tamodel.predict(test_data)
-    predictions = tsvmodel.predict(test_data)
+    prediction = model1.predict(test_data)
+    predictions = model2.predict(test_data)
    
     return prediction, predictions
 
