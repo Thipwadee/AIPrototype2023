@@ -64,7 +64,7 @@ def form_info():
         print(area,file=sys.stdout)
         print(seasons,file=sys.stdout)
         try:
-            predictions = preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, seasons) 
+            predictions = preprocessDataAndPredicttsv(gender, age, weight, height, temp,rh,v,tmrt,area, seasons) 
             prediction = preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, seasons)    
             if (prediction[0]==0)  :
                result_template = 'result.html'
@@ -93,19 +93,25 @@ def preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, s
     #creating a dataframe
     test_data = pd.DataFrame(test_data)
     print(test_data)
-
-    #open file
-    #file = open("model.pkl","rb")
-    #load trained model
-    #trained_model = joblib.load(file)
-    #predict
-
-    #prediction2 = model_tsv.predict(test_data)
     
     prediction = model1.predict(test_data)
-    predictions = model2.predict(test_data)
+    
    
-    return prediction, predictions
+    return prediction
+
+def preprocessDataAndPredicttsv(gender, age, weight, height, temp,rh,v,tmrt,area, seasons):
+    #put all inputs in array
+    test_data2 = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
+    print(test_data2)
+    #convert value data into numpy array
+    test_data2 = np.array(test_data2)
+    #creating a dataframe
+    test_data2 = pd.DataFrame(test_data2)
+    print(test_data2)
+    
+    predictions = model2.predict(test_data2)
+   
+    return predictions
 
 
 @app.route("/res", methods=['POST','GET'])
