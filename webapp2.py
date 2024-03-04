@@ -65,25 +65,25 @@ def form_info():
         print(area,file=sys.stdout)
         print(seasons,file=sys.stdout)
         try:
+            predictions = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons) 
             prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)    
             if (prediction[0]==0)  :
                result_template = 'result.html'
             elif (prediction[0]==1) :
                result_template = 'unaccept.html'
 
-            return render_template(result_template, prediction=prediction)
+            return render_template(result_template, prediction=prediction, predictions=predictions)
             
     #pass prediction to template
         except ValueError:
             return "Please Enter valid values"
+            
+            
  #เก็บไว้ก่อน iris data       result1 = model_ta.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])
  #เก็บไว้ก่อน iris data          result2 = model_tsv.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])[0]
         
         #return render_template('result.html') 
-             
-    #pass prediction to template
-        except ValueError:
-            return "Please Enter valid values"
+
         
 def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons):
     #put all inputs in array
@@ -103,8 +103,9 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
     #prediction2 = model_tsv.predict(test_data)
     
     prediction = tamodel.predict(test_data)
+    predictions = tsvmodel.predict(test_data)
    
-    return prediction
+    return prediction, predictions
 
     
 
