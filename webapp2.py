@@ -10,7 +10,7 @@ from joblib import dump, load
 import sklearn
 
 app = Flask(__name__)
-with (open('../AIPrototype2023/model_ta.pk', 'rb') ) as f :
+with (open('../AIPrototype2023/tamodel.pk', 'rb') ) as f :
       model_ta = load(f)
 with (open('../AIPrototype2023/model_tsv.pk', 'rb') ) as f :
       model_tsv = load(f)
