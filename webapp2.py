@@ -67,8 +67,7 @@ def form_info():
         print(seasons,file=sys.stdout)
         try:
             prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
-            #prediction2 = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
-
+            prediction = 0 if prediction == 0 else 1
             
             return render_template('result.html', prediction = prediction)
             
@@ -80,24 +79,6 @@ def form_info():
         
         #return render_template('result.html') 
         
-    #prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area)
-
-    #return render_template('result.html', prediction = prediction)
-    #if request.method == "GET":
-    #   print('here(GET)', file=sys.stdout)
- #   model = pickle.load(open('model (1).pk','rb'))
-    #   Agein = request.args.get('ticketNum')
-    #   print(Agein, file=sys.stdout)
-    #   return render_template("pred.html")
-      
-    #elif request.method == "POST":
-    #   print('here (POST)', file=sys.stdout)
-    #   Age = request.form.get('agein')
-    #   weight = request.form.get('weightin')
-    #   print(Age)
-    #   print(weight)
-    #   return render_template("result.html")
-
 def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons):
     #put all inputs in array
     test_data = [[gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons]]
@@ -116,8 +97,8 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
     #prediction2 = model_tsv.predict(test_data)
 
     prediction = model_ta.predict(test_data)
-    prediction = 0 if prediction == 0 else 1
-    return render_template('result.html', prediction = prediction)
+   
+    return render_template('result.html')
 
     
 
