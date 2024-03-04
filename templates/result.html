@@ -15,21 +15,15 @@
   <form action="/form" method="post">
    <div class="container">
     <header><h3><center>Result</center></h3></header>
-       {{ prediction}}
+      
     </div>
     
-           
-      {% if prediction == 0 %}
-          <h4><center>ACCEPTANCE</center></h4>
-          <div class="acc-pic">
-            <img src="./static/good-mood.png" alt="">  
-          </div>  
-      {% elif prediction == 1 %}
-          <h4><center>UnACCEPTANCE</center></h4>
-          <div class="unacc-pic">
-            <img src="./static/customer.png" alt="">  
-          </div>
+      {% if prediction==0 %}     
+          <h4>ACCEPTANCE</h4>
+      {% elif prediction==1 %}
+          <h4>UNACCEPTANCE</h4>
       {% endif %}
+      
 
         <div class="form first">
           <div class="details personal"></div>
