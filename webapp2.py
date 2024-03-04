@@ -11,11 +11,10 @@ import sklearn
 
 app = Flask(__name__)
 with (open('../AIPrototype2023/tamodel.pk', 'rb') ) as f :
-      model_ta = load(f)
+      tamodel.pk = load(f)
 with (open('../AIPrototype2023/model_tsv.pk', 'rb') ) as f :
       model_tsv = load(f)
-with (open('../AIPrototype2023/shap.pk', 'rb') ) as f :
-      shapta = load(f)      
+  
 ##api
 @app.route('/request',methods=['POST'])
 def web_service_API():
@@ -67,10 +66,11 @@ def form_info():
         print(seasons,file=sys.stdout)
         try:
             prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
-            prediction = 0 if prediction == 0 else 1
-
             
-            return render_template('result.html', prediction = prediction)
+            if prediction==0  :
+              return render_template('result.html',prediction = prediction)
+            elif prediction==1 :
+              return render_template('unaccept.html', prediction = prediction)
             
     #pass prediction to template
         except ValueError:
@@ -97,9 +97,9 @@ def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,ar
 
     #prediction2 = model_tsv.predict(test_data)
     
-    prediction = model_ta.predict(test_data)
+    prediction = tamodel.pk.predict(test_data)
    
-    return render_template('result.html',prediction=prediction)
+    return prediction
 
     
 
