@@ -56,7 +56,7 @@ def form_info():
         print(age,file=sys.stdout)
         print(weight,file=sys.stdout)
         print(height,file=sys.stdout)
-        print(bmi,file=sys.stdout)
+        #print(bmi,file=sys.stdout)
         print(temp,file=sys.stdout)
         print(rh,file=sys.stdout)
         print(v,file=sys.stdout)
