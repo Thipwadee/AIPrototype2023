@@ -45,7 +45,7 @@ def form_info():
         age = request.form.get('agein')
         weight = request.form.get('weightin')
         height = request.form.get('heightin')
-        bmi = request.form.get('bmiin')
+        #bmi = request.form.get('bmiin')
         temp= request.form.get('tempin')
         rh = request.form.get('rhin')
         v = request.form.get('vin')
