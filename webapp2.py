@@ -12,8 +12,8 @@ import sklearn
 app = Flask(__name__)
 with (open('../AIPrototype2023/tamodel.pk', 'rb') ) as f :
       tamodel = load(f)
-with (open('../AIPrototype2023/model_tsv.pk', 'rb') ) as f :
-      model_tsv = load(f)
+with (open('../AIPrototype2023/tsvmodel.pk', 'rb') ) as f :
+      tsvmodel = load(f)
   
 ##api
 @app.route('/request',methods=['POST'])
@@ -79,6 +79,20 @@ def form_info():
  #เก็บไว้ก่อน iris data          result2 = model_tsv.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])[0]
         
         #return render_template('result.html') 
+        try:
+            prediction = preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons)
+            
+            if prediction==0  :
+              result_template = 'result.html'
+            elif prediction==1 :
+              result_template = 'unaccept.html'
+
+            return render_template(result_template, prediction=prediction)
+    
+            
+    #pass prediction to template
+        except ValueError:
+            return "Please Enter valid values"
         
 def preprocessDataAndPredict(gender, age, weight, height, bmi, temp,rh,v,tmrt,area, seasons):
     #put all inputs in array
