@@ -15,12 +15,14 @@
   <form action="/form" method="post">
    <div class="container">
     <header><h3><center>Result</center></h3></header>
-      
+   </div>
+  </form>  
     
       {% if prediction==0 %}     
-          <h4>ACCEPTANCE</h4>
+          <h4 style="color: green;">ACCEPTANCE</h4>
+          
       {% elif prediction==1 %}
-          <h4>UNACCEPTANCE</h4>
+          <h4 style="color: red;">UNACCEPTANCE</h4>
       {% endif %}
       
 
