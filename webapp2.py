@@ -11,7 +11,7 @@ import sklearn
 
 app = Flask(__name__)
 with (open('../AIPrototype2023/tamodel.pk', 'rb') ) as f :
-      tamodel.pk = load(f)
+      tamodel = load(f)
 with (open('../AIPrototype2023/model_tsv.pk', 'rb') ) as f :
       model_tsv = load(f)
   
