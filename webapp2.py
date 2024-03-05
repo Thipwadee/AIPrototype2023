@@ -81,13 +81,25 @@ def form_info():
 
         
 def preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, seasons):
-    #put all inputs in array
-    test_data = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
-    print(test_data)
+    #test_data = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
+    #print(test_data)
     #convert value data into numpy array
     #test_data = np.array(test_data)
     #creating a dataframe
-    test_data = pd.DataFrame(test_data)
+    #test_data = pd.DataFrame(test_data)
+    # สร้าง DataFrame จากข้อมูลที่รับเข้ามา
+    test_data = pd.DataFrame({
+        'gender': [gender],
+        'age': [age],
+        'weight': [weight],
+        'height': [height],
+        'temp': [temp],
+        'rh': [rh],
+        'v': [v],
+        'tmrt': [tmrt],
+        'area': [area],
+        'seasons': [seasons]
+    })
     print(test_data)
 
     #scaling data
@@ -101,14 +113,26 @@ def preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, s
 
 def preprocessDataAndPredicttsv(gender, age, weight, height, temp,rh,v,tmrt,area, seasons):
     #put all inputs in array
-    test_data2 = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
-    print(test_data2)
+    #test_data2 = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
+    #print(test_data2)
     #convert value data into numpy array
     #test_data2 = np.array(test_data2)
     #creating a dataframe
-    test_data2 = pd.DataFrame(test_data2)
+    #test_data2 = pd.DataFrame(test_data2)
+    #print(test_data2)
+    test_data2 = pd.DataFrame({
+        'gender': [gender],
+        'age': [age],
+        'weight': [weight],
+        'height': [height],
+        'temp': [temp],
+        'rh': [rh],
+        'v': [v],
+        'tmrt': [tmrt],
+        'area': [area],
+        'seasons': [seasons]})
+    
     print(test_data2)
-
     #scaling data
     scaler = StandardScaler()
     test_data_scaled2 = scaler.fit_transform(test_data2)
