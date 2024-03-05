@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 from joblib import dump, load
 import sklearn
+from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__)
 with (open('../AIPrototype2023/model1.pkl', 'rb') ) as f :
@@ -76,12 +77,6 @@ def form_info():
     #pass prediction to template
         except ValueError:
             return "Please Enter valid values"
-            
-            
- #เก็บไว้ก่อน iris data       result1 = model_ta.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])
- #เก็บไว้ก่อน iris data          result2 = model_tsv.predict([[gender, age, weight, height, bmi, temp,rh,v,tmrt,area,seasons]])[0]
-        
-        #return render_template('result.html') 
 
         
 def preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, seasons):
@@ -93,8 +88,12 @@ def preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, s
     #creating a dataframe
     test_data = pd.DataFrame(test_data)
     print(test_data)
+
+    #scaling data
+    scaler = StandardScaler()
+    test_data_scaled = scaler.fit_transform(test_data)
     
-    prediction = model1.predict(test_data)
+    prediction = model1.predict(test_data_scaled)
     
    
     return prediction
@@ -108,8 +107,12 @@ def preprocessDataAndPredicttsv(gender, age, weight, height, temp,rh,v,tmrt,area
     #creating a dataframe
     test_data2 = pd.DataFrame(test_data2)
     print(test_data2)
-    
-    predictions = model2.predict(test_data2)
+
+    #scaling data
+    scaler = StandardScaler()
+    test_data_scaled2 = scaler.fit_transform(test_data2)
+        
+    predictions = model2.predict(test_data_scaled2)
    
     return predictions
 
@@ -119,30 +122,5 @@ def res():
        return render_template("result.html")
 
 
-#@app.route('/upload', methods=['GET', 'POST'])
-#def upload_file():
-#    if request.method == 'POST':
-        # check if the post request has the file part
-        #if 'file' not in request.files:
-        #    flash('No file part')
-        #    return redirect(request.url)
-#        file = request.files['file']
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
-        #if file.filename == '':
-        #    flash('No selected file')
-        #    return redirect(request.url
-#        file.save('filename')
-#        return render_template("Webapp.html", name='upload completed')
-    
-#    return '''
-#    <!doctype html>
-#    <title>Upload new File</title>
-#    <h1>Upload new File</h1>
-#    <form method=post enctype=multipart/form-data>
-#      <input type=file name=file>
-#      <input type=submit value=Upload>
-#    </form>
-#    '''   
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True,port=5001) #host='0.0.0.0'คือสามารถให้เครื่องอื่นเห็นได้
