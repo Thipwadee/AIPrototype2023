@@ -65,22 +65,44 @@ def form_info():
         print(tmrt,file=sys.stdout)
         print(area,file=sys.stdout)
         print(seasons,file=sys.stdout)
-        try:
-            predictions = preprocessDataAndPredicttsv(gender, age, weight, height, temp,rh,v,tmrt,area, seasons) 
-            prediction = preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, seasons)    
-            if (prediction[0]==0)  :
-               result_template = 'result.html'
-            elif (prediction[0]==1) :
-               result_template = 'unaccept.html'
 
-            return render_template(result_template, prediction=prediction, predictions=predictions)
+        data = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
+
+        scaler = StandardScaler()
+        data_scaled = scaler.fit_transform(data)
+    
+        
+        prediction = model1.predict(data_scaled)
+        
+        if prediction[-1] == 0:
+            result_template = 'result.html'
+
+        if prediction[-1] == 1:
+            result_template = 'unaccept.html'
+
+        return render_template(result_template,   prediction= prediction)
+        #try:
+        #    predictions = preprocessDataAndPredicttsv(gender, age, weight, height, temp,rh,v,tmrt,area, seasons) 
+        #    prediction = preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, seasons)    
+        #    if (prediction[0] ==0)  :
+        #       result_template = 'result.html'
+        #    elif (prediction[0]==1) :
+        #       result_template = 'unaccept.html'
+
+        #    return render_template(result_template, prediction=prediction, predictions=predictions)
             
     #pass prediction to template
-        except ValueError:
-            return "Please Enter valid values"
+        #except ValueError:
+        #    return "Please Enter valid values"
+    #    data2 = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
+    #    scaler = StandardScaler()
+    #    data2_scaled = scaler.fit_transform(data2)
+    
+        
+    #    predictions = model2.predict(data2_scaled)
 
         
-def preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, seasons):
+#def preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, seasons):
     #test_data = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
     #print(test_data)
     #convert value data into numpy array
@@ -88,30 +110,27 @@ def preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, s
     #creating a dataframe
     #test_data = pd.DataFrame(test_data)
     # สร้าง DataFrame จากข้อมูลที่รับเข้ามา
-    test_data = pd.DataFrame({
-        'gender': [gender],
-        'age': [age],
-        'weight': [weight],
-        'height': [height],
-        'temp': [temp],
-        'rh': [rh],
-        'v': [v],
-        'tmrt': [tmrt],
-        'area': [area],
-        'seasons': [seasons]
-    })
-    print(test_data)
+#    test_data = pd.DataFrame({
+#        'gender': [gender],
+#        'age': [age],
+#        'weight': [weight],
+#        'height': [height],
+#        'temp': [temp],
+#        'rh': [rh],
+#        'v': [v],
+#        'tmrt': [tmrt],
+#        'area': [area],
+#        'seasons': [seasons]
+#    })
+#    print(test_data)
 
     #scaling data
-    scaler = StandardScaler()
-    test_data_scaled = scaler.fit_transform(test_data)
-    
-    prediction = model1.predict(test_data_scaled)
+
     
    
-    return prediction
+    #return prediction
 
-def preprocessDataAndPredicttsv(gender, age, weight, height, temp,rh,v,tmrt,area, seasons):
+#def preprocessDataAndPredicttsv(gender, age, weight, height, temp,rh,v,tmrt,area, seasons):
     #put all inputs in array
     #test_data2 = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
     #print(test_data2)
@@ -120,26 +139,26 @@ def preprocessDataAndPredicttsv(gender, age, weight, height, temp,rh,v,tmrt,area
     #creating a dataframe
     #test_data2 = pd.DataFrame(test_data2)
     #print(test_data2)
-    test_data2 = pd.DataFrame({
-        'gender': [gender],
-        'age': [age],
-        'weight': [weight],
-        'height': [height],
-        'temp': [temp],
-        'rh': [rh],
-        'v': [v],
-        'tmrt': [tmrt],
-        'area': [area],
-        'seasons': [seasons]})
+    #test_data2 = pd.DataFrame({
+    #    'gender': [gender],
+    #    'age': [age],
+    #    'weight': [weight],
+    #    'height': [height],
+    #    'temp': [temp],
+    #    'rh': [rh],
+    #    'v': [v],
+    #    'tmrt': [tmrt],
+    #    'area': [area],
+    #    'seasons': [seasons]})
     
-    print(test_data2)
+    #print(test_data2)
     #scaling data
-    scaler = StandardScaler()
-    test_data_scaled2 = scaler.fit_transform(test_data2)
+    #scaler = StandardScaler()
+    #test_data_scaled2 = scaler.fit_transform(test_data2)
         
-    predictions = model2.predict(test_data_scaled2)
+    #predictions = model2.predict(test_data_scaled2)
    
-    return predictions
+    #return predictions
 
 
 @app.route("/res", methods=['POST','GET'])
