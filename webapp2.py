@@ -81,7 +81,16 @@ def form_info():
         if prediction[-1] == 1:
             result_template = 'unaccept.html'
 
-        return render_template(result_template,   prediction= prediction)
+        data2 = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
+        data2 = pd.DataFrame(data2)
+
+        scaler = StandardScaler()
+        data2_scaled = scaler.fit_transform(data2)
+    
+        
+        predictions = model2.predict(data2_scaled)   
+        
+        return render_template(result_template, prediction= prediction, predictions= predictions)
         #try:
         #    predictions = preprocessDataAndPredicttsv(gender, age, weight, height, temp,rh,v,tmrt,area, seasons) 
         #    prediction = preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, seasons)    
