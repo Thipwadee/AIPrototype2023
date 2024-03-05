@@ -10,6 +10,7 @@ from joblib import dump, load
 import sklearn
 from sklearn.preprocessing import StandardScaler
 
+
 app = Flask(__name__)
 with (open('../AIPrototype2023/model1.pkl', 'rb') ) as f :
       model1= load(f)
@@ -84,7 +85,7 @@ def preprocessDataAndPredict(gender, age, weight, height, temp,rh,v,tmrt,area, s
     test_data = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
     print(test_data)
     #convert value data into numpy array
-    test_data = np.array(test_data)
+    #test_data = np.array(test_data)
     #creating a dataframe
     test_data = pd.DataFrame(test_data)
     print(test_data)
@@ -103,7 +104,7 @@ def preprocessDataAndPredicttsv(gender, age, weight, height, temp,rh,v,tmrt,area
     test_data2 = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
     print(test_data2)
     #convert value data into numpy array
-    test_data2 = np.array(test_data2)
+    #test_data2 = np.array(test_data2)
     #creating a dataframe
     test_data2 = pd.DataFrame(test_data2)
     print(test_data2)
