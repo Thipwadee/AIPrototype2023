@@ -67,6 +67,7 @@ def form_info():
         print(seasons,file=sys.stdout)
 
         data = [[gender, age, weight, height, temp,rh,v,tmrt,area, seasons]]
+        data = pd.DataFrame(data)
 
         scaler = StandardScaler()
         data_scaled = scaler.fit_transform(data)
